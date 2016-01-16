@@ -21,7 +21,7 @@ app.factory('GitAPI', ['$http', function($http){
         for(i = 0; i < gitNames.length; i++) {
             $http.jsonp("https://api.github.com/users/" + gitNames[i] + "/events?callback=JSON_CALLBACK").then(function(response) {
                 console.log("API call response:", response);
-                data.push(response.data);
+                data.push(response.data.data[0]);
             });
         }
     };

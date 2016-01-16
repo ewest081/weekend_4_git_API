@@ -15,7 +15,7 @@
         <p>Greeting: {{message}}</p>
         <!--<p>Return: {{gitData}}</p>-->
         <ul>
-            <li ng-repeat="user in gitData">{{user.data}}</li>
+            <li ng-repeat="user in gitData">User ID: {{user.id}}<br>User Name: {{user.actor.login}}<br>Link: {{user.actor.url}}<br><br><br></li>
         </ul>
     </div>
 
