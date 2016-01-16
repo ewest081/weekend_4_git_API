@@ -9,9 +9,9 @@ var app = express();
 app.use(express.static('server/public'));
 app.use('/', index);
 
-app.get('/getGit', function(request, response){
-   response.send("Get successful");
-});
+//app.get('/getGit', function(request, response){
+//   response.send("Get successful");
+//});
 
 var server = app.listen(3000, function(){
     var port = server.address().port;
