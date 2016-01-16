@@ -9,36 +9,30 @@ app.controller('MainController', ['$scope', 'GitAPI', function($scope, GitAPI){
 
     $scope.data = GitAPI.data;
 
-    //console.log(GitAPI.data);
+    console.log("controller data:", GitAPI.data);
 
     GitAPI.fetch();
 }]);
 
 app.factory('GitAPI', ['$http', function($http){
-    var data = [];
+    var data = {};
+    var results;
 
-    fetchData = function(){
+    var fetchData = function(){
 
-        //$http.get('/getGit').then(function(respon se){
-        //    data.results = response.data
-        //});
+        $http.jsonp("https://api.github.com/users/" + "ewest081" + "/events?callback=JSON_CALLBACK").then(function(response) {
+            console.log("API call response:", response);
+            console.log("API call response nested:", response.data.data);
 
-        thetaGit = thetaNames();
+            results = response;
+            return results;
+        });
 
-        for(i = 0; i < thetaGit.length; i++){
+        data.results = results;
+        console.log("data within fetchData:", data);
 
-            pullUser = {};
-
-            $http.jsonp('https://api.github.com/users/' + thetaGit[i] + '/events?callback=JSON_CALLBACK').then(function (response) {
-
-                pullUser.userName = response.data.data;
-
-                data.push(pullUser)
-            });
-        }
     };
-    console.log(data);
-
+    console.log("data within GitAPI: ", data);
 
     return {
         fetch: fetchData,
