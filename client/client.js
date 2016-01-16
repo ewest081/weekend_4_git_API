@@ -13,7 +13,7 @@ app.controller('MainController', ['$scope', 'GitAPI', function($scope, GitAPI){
 }]);
 
 app.factory('GitAPI', ['$http', function($http){
-    var data = {};
+    var data = [];
 
     gitNames = ["joeltmiller", "ewest081", "scottbromander", "rohran01", "the-amber-joy", "abrooksnagel", "CharlieGitDev", "cwgraff", "Dante0031", "EricWAnderson", "gwenpaul", "Hinges", "jeremycloutier", "jmanders85", "jrobby", "kenziebultema", "kyracrow", "mcreinders", "nataliekoch", "rimalta", "rothermal", "samantha212", "sjorgens", "sothep"];
 
@@ -21,7 +21,7 @@ app.factory('GitAPI', ['$http', function($http){
         for(i = 0; i < gitNames.length; i++) {
             $http.jsonp("https://api.github.com/users/" + gitNames[i] + "/events?callback=JSON_CALLBACK").then(function(response) {
                 console.log("API call response:", response);
-                data.results = response;
+                data.push(response.data);
             });
         }
     };
@@ -31,7 +31,3 @@ app.factory('GitAPI', ['$http', function($http){
         data: data
     }
 }]);
-
-//thetaNames = function(){
-//    return ["joeltmiller", "ewest081", "scottbromander", "rohran01", "the-amber-joy", "abrooksnagel", "CharlieGitDev", "cwgraff", "Dante0031", "EricWAnderson", "gwenpaul", "Hinges", "jeremycloutier", "jmanders85", "jrobby", "kenziebultema", "kyracrow", "mcreinders", "nataliekoch", "rimalta", "rothermal", "samantha212", "sjorgens", "sothep"];
-//};

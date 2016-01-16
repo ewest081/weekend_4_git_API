@@ -13,8 +13,9 @@
 
     <div ng-controller="MainController">
         <p>Greeting: {{message}}</p>
+        <!--<p>Return: {{gitData}}</p>-->
         <ul>
-            <li ng-repeat="people in gitData">{{people.results}}</li>
+            <li ng-repeat="user in gitData">{{user.data}}</li>
         </ul>
     </div>
 
