@@ -16,23 +16,15 @@ app.controller('MainController', ['$scope', 'GitAPI', function($scope, GitAPI){
 
 app.factory('GitAPI', ['$http', function($http){
     var data = {};
-    var results;
 
     var fetchData = function(){
 
         $http.jsonp("https://api.github.com/users/" + "ewest081" + "/events?callback=JSON_CALLBACK").then(function(response) {
             console.log("API call response:", response);
-            console.log("API call response nested:", response.data.data);
-
-            results = response;
-            return results;
+            data.results = response;
         });
 
-        data.results = results;
-        console.log("data within fetchData:", data);
-
     };
-    console.log("data within GitAPI: ", data);
 
     return {
         fetch: fetchData,
