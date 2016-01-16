@@ -6,10 +6,10 @@ var path = require('path');
 
 var router = express.Router();
 
-router.get('/', function(req, res){
+router.get('/', function(request, response){
    var joinedPath = path.join(__dirname, '../public/views/index.html');
     console.log('Joined path:', joinedPath);
-    res.sendFile(joinedPath);
+    response.sendFile(joinedPath);
 });
 
 module.exports = router;

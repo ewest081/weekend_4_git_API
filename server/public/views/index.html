@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="clientApp">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Git API</title>
 
     <script src="vendors/angular/angular.min.js"></script>
     <script src="assets/scripts/client.min.js"></script>
@@ -10,5 +10,9 @@
 </head>
 <body>
     <h2>Hello world!</h2>
+    <div ng-controller="MainController">
+        <p>Greeting: {{message}}</p>
+        <p>Data called: {{data.results}}</p>
+    </div>
 </body>
 </html>
