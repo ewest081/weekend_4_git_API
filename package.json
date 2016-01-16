@@ -10,6 +10,7 @@
   "author": "Liz Westberg",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.4.8",
     "bootstrap": "^3.3.6",
     "express": "^4.13.3",
     "grunt": "^0.4.5",

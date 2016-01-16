@@ -10,9 +10,13 @@
 </head>
 <body>
     <h2>Hello world!</h2>
+
     <div ng-controller="MainController">
         <p>Greeting: {{message}}</p>
-        <p>Data called: {{data.results}}</p>
+        <ul>
+            <li ng-repeat="people in gitData">{{people.results}}</li>
+        </ul>
     </div>
+
 </body>
 </html>

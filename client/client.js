@@ -7,9 +7,7 @@ app.controller('MainController', ['$scope', 'GitAPI', function($scope, GitAPI){
 
     $scope.message = "Script working!";
 
-    $scope.data = GitAPI.data;
-
-    console.log("controller data:", GitAPI.data);
+    $scope.gitData = GitAPI.data;
 
     GitAPI.fetch();
 }]);
@@ -17,13 +15,15 @@ app.controller('MainController', ['$scope', 'GitAPI', function($scope, GitAPI){
 app.factory('GitAPI', ['$http', function($http){
     var data = {};
 
+    gitNames = ["joeltmiller", "ewest081", "scottbromander", "rohran01", "the-amber-joy", "abrooksnagel", "CharlieGitDev", "cwgraff", "Dante0031", "EricWAnderson", "gwenpaul", "Hinges", "jeremycloutier", "jmanders85", "jrobby", "kenziebultema", "kyracrow", "mcreinders", "nataliekoch", "rimalta", "rothermal", "samantha212", "sjorgens", "sothep"];
+
     var fetchData = function(){
-
-        $http.jsonp("https://api.github.com/users/" + "ewest081" + "/events?callback=JSON_CALLBACK").then(function(response) {
-            console.log("API call response:", response);
-            data.results = response;
-        });
-
+        for(i = 0; i < gitNames.length; i++) {
+            $http.jsonp("https://api.github.com/users/" + gitNames[i] + "/events?callback=JSON_CALLBACK").then(function(response) {
+                console.log("API call response:", response);
+                data.results = response;
+            });
+        }
     };
 
     return {
@@ -32,6 +32,6 @@ app.factory('GitAPI', ['$http', function($http){
     }
 }]);
 
-thetaNames = function(){
-    return ["joeltmiller", "ewest081", "scottbromander", "rohran01", "the-amber-joy", "abrooksnagel", "CharlieGitDev", "cwgraff", "Dante0031", "EricWAnderson", "gwenpaul", "Hinges", "jeremycloutier", "jmanders85", "jrobby", "kenziebultema", "kyracrow", "mcreinders", "nataliekoch", "rimalta", "rothermal", "samantha212", "sjorgens", "sothep"];
-};
+//thetaNames = function(){
+//    return ["joeltmiller", "ewest081", "scottbromander", "rohran01", "the-amber-joy", "abrooksnagel", "CharlieGitDev", "cwgraff", "Dante0031", "EricWAnderson", "gwenpaul", "Hinges", "jeremycloutier", "jmanders85", "jrobby", "kenziebultema", "kyracrow", "mcreinders", "nataliekoch", "rimalta", "rothermal", "samantha212", "sjorgens", "sothep"];
+//};
