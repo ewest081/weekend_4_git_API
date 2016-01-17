@@ -1,3 +1,9 @@
-h2 {
+.jumbotron {
     text-align: center;
+}
+
+img {
+    height: 100px;
+    float: right;
+    display: inline;
 }

@@ -13,7 +13,7 @@ app.controller('MainController', ['$scope', 'GitAPI', function($scope, GitAPI){
 app.factory('GitAPI', ['$http', function($http){
     var data = [];
 
-    gitNames = ["joeltmiller", "ewest081", "scottbromander", "rohran01", "the-amber-joy", "abrooksnagel", "CharlieGitDev", "cwgraff", "Dante0031", "EricWAnderson", "gwenpaul", "Hinges", "jeremycloutier", "jmanders85", "jrobby", "kenziebultema", "kyracrow", "mcreinders", "nataliekoch", "rimalta", "rothermal", "samantha212", "sjorgens", "sothep"];
+    gitNames = ["joeltmiller", "ewest081", "scottbromander", "rohran01", "the-amber-joy", "abrooksnagel", "CharlieGitDev", "cwgraff", "Dante0031", "EricWAnderson", "gwenpaul", "Hinges", "jeremycloutier", "jmanders85", "jrobby", "kenziebultema", "kyracrow", "mcreinders", "nataliekoch", "rimatla", "rothermal", "samantha212", "sjorgens", "sothep"];
 
     var fetchData = function(){
         for(i = 0; i < gitNames.length; i++) {
