@@ -5,8 +5,6 @@ var app = angular.module('clientApp', []);
 
 app.controller('MainController', ['$scope', 'GitAPI', function($scope, GitAPI){
 
-    $scope.message = "Script working!";
-
     $scope.gitData = GitAPI.data;
 
     GitAPI.fetch();
